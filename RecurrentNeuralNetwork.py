@@ -89,3 +89,10 @@ class NamesDataset(Dataset):
 alldata = NamesDataset("data/names")
 print(f"loaded {len(alldata)} items of data")
 print(f"example = {alldata[0]}")
+
+train_set, test_set = torch.utils.data.random_split(alldata, [.85, .15], generator=torch.Generator(device=device).manual_seed(2024))
+
+print(f"train examples = {len(train_set)}, validation examples = {len(test_set)}")
+
+# Creating the Network
+
